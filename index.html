@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO IN ITEC 55</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <h1>PORTFOLIO IN ITEC 55</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="filterTasks('all')">All</a></li>
+                <li><a href="#" onclick="filterTasks('seatwork')">Seatwork</a></li>
+                <li><a href="#" onclick="filterTasks('quizzes')">Quizzes</a></li>
+                <li><a href="#" onclick="filterTasks('lab')">Lab Activity</a></li>
+                <li><a href="#" onclick="filterTasks('exam')">Exam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!--About-->
+        <section class="task about">
+            <h2>About Me</h2>
+            <div class="about-box">
+                <img src="images/profile.jpg" alt="profile">
+                <div class="about-text">
+                    <p>
+                        Hi! I'm <strong>Jean Rae Julliane A. Leaban</strong>, a <strong>2nd-year BSIT student at Cavite State University - Silang Campus</strong>. <br>
+                        This is my school portfolio for <strong>ITEC55: PLATFORM TECHNOLOGY</strong>. <br>
+                        Here, you can see my seatwork, quizzes, exams and lab activities score.
+                    </p>
+                    <p><strong>Age:</strong> 19</p>
+                    <p><strong>Hobbies:</strong> Reading Wattpad stories, listening to music, watching anime, and taking sunset photos</p>
+                </div>
+            </div>
+        </section>
+
+        <!--Seatwork-->
+        <section class="task seatwork">
+            <h2>Seatwork</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="images/coming soon.jpg" alt="coming soon">
+                    <figcaption>
+                        <strong>Seatwork 1</strong> <br>
+                        <strong>Date:</strong> <br> <strong>Score:</strong>
+                    </figcaption>
+                </figure>
+                 
+            </div>
+        </section>
+
+        <!-- Quizzes -->
+        <section class="task quizzes">
+            <h2>Quizzes</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="images/coming soon.jpg" alt="coming soon">
+                    <figcaption>
+                        <strong>Quiz 1</strong> <br>
+                        <strong>Date:</strong> <br> <strong>Score:</strong>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!--Lab-->
+        <section class="task lab">
+            <h2>Lab Activities</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="images/coming soon.jpg" alt="coming soon">
+                    <figcaption>
+                        <strong>Lab Activity 1</strong> <br>
+                        <strong>Date:</strong> <br> <strong>Score:</strong>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!--Exam-->
+        <section class="task exam">
+            <h2>Exam</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="images/coming soon.jpg" alt="coming soon">
+                    <figcaption>
+                        <strong>Midterm Exam</strong> <br>
+                        <strong>Date:</strong> <br> <strong>Score:</strong>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <p>© 2025 Jean Rae Julliane A. Leaban | BSIT-2A, CvSU - Silang</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Script -->
+    <script>
+        // Filter function
+        function filterTasks(category) {
+            let tasks = document.querySelectorAll('.task');
+            tasks.forEach(task => {
+                task.classList.remove("show");
+                if (category === 'all' || task.classList.contains(category)) {
+                    task.classList.add("show");
+                }
+            });
+        }
+        window.onload = () => filterTasks('all'); 
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.querySelector("nav ul").classList.toggle("show");
+        }
+
+        // Lightbox
+        const images = document.querySelectorAll(".gallery img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightbox.style.display = "flex";
+                lightboxImg.src = img.src;
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+    </script>
+</body>
+</html>
