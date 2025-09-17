@@ -134,6 +134,25 @@ h2 {
   color: #3e3e3e;
 }
 
+/* Multiple images in one figure */
+.multi-img {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.multi-img img {
+  width: 100px;   /* preview size */
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.multi-img img:hover {
+  transform: scale(1.05);
+}
+
 /* Footer */
 footer {
   text-align: center;
@@ -223,5 +242,9 @@ footer {
   .about-box {
     flex-direction: column;
     text-align: center;
+  }
+  .multi-img {
+    flex-direction: column;
+    align-items: center;
   }
 }
